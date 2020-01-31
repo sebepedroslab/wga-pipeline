@@ -1,6 +1,6 @@
 # wga-pipeline
 
-Draft pipeline for WGA alignment. 
+Very rough draft pipeline for WGA alignment with **lastz** + **phastCons** + **phyloFit**.
 
 *Note to XG: translate, clean, de-Anophelise, & annotate.*
 
