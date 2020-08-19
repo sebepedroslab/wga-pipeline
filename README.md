@@ -1,5 +1,46 @@
 # wga-pipeline
 
+## New
+
+### Pipeline
+
+Launch this:
+
+```
+bash s01_wga_multisps.sh species.list genomes/ Tadh
+```
+
+* `species.list`: list of species to align (one per line)
+* `genomes/`: folder containing all genomes to align (which have to have this format: Spsname_gDNA.fasta)
+* `Tadh`: name of the reference species (all other species will be aligned to this one).
+
+It will format genomes in the `genomes/` folder, split the reference genome into chromosomes (`Tadh`), index genomes, align genomes to reference genome, and post-process the alignments (see below for draft detailed pipeline).
+
+### Dependencies
+
+Alignets (`lastz` and maybe `multiz`?) and UCSC utilities can be installed from `bioconda`:
+
+```bash
+bioawk                    1.0                  hed695b0_5    bioconda
+lastz                     1.0.4                h516909a_4    bioconda
+multiz                    11.2                 h14c3975_0    bioconda
+samtools                  1.10                 h9402c20_2    bioconda
+ucsc-axtchain             377                  h446ed27_1    bioconda
+ucsc-axttomaf             377                  h446ed27_1    bioconda
+ucsc-bedsort              377                  h446ed27_2    bioconda
+ucsc-chainnet             377                  h446ed27_1    bioconda
+ucsc-chainprenet          377                  h446ed27_1    bioconda
+ucsc-chainsort            377                  h446ed27_1    bioconda
+ucsc-fatotwobit           377                  h446ed27_3    bioconda
+ucsc-genepredtobed        377                  h446ed27_3    bioconda
+ucsc-maftopsl             377                  h446ed27_1    bioconda
+ucsc-netsyntenic          377                  h446ed27_1    bioconda
+ucsc-nettoaxt             377                  h446ed27_1    bioconda
+ucsc-nettobed             377                  h446ed27_1    bioconda
+```
+
+### Draft pipeline
+
 Very rough draft pipeline for WGA alignment with **lastz** + **phastCons** + **phyloFit**.
 
 *Note to XG: translate, clean, de-Anophelise, & annotate.*
